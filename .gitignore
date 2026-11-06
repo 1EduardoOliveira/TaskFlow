@@ -1,0 +1,11 @@
+# Arquivos compilados
+backend/programa
+backend/*.o
+*.out
+
+# Arquivos temporários
+*.tmp
+*.log
+
+# Configurações locais do editor
+.vscode/

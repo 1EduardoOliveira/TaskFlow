@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Menu lateral -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h2>TaskFlow<span>.</span></h2>
+            </div>
+
+            <nav class="menu">
+            <a href="#" class="active" data-filter="all">Minhas tarefas</a>
+            <a href="#" data-filter="pending">Pendentes</a>
+            <a href="#" data-filter="completed">Concluídas</a>
+            </nav>
+
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+
+            <header class="header">
+                <div>
+                    <h1>Minhas tarefas</h1>
+                    <p>Organize seu dia e acompanhe seu progresso.</p>
+                </div>
+            </header>
+
+            <!-- Resumo -->
+            <section class="task-summary">
+
+                <div class="summary-card">
+                    <h3>Total de tarefas</h3>
+                    <span id="total-tasks">0</span>
+                </div>
+
+                <div class="summary-card">
+                    <h3>Pendentes</h3>
+                    <span id="pending-tasks">0</span>
+                </div>
+
+                <div class="summary-card">
+                    <h3>Concluídas</h3>
+                    <span id="completed-tasks">0</span>
+                </div>
+
+            </section>
+
+            <!-- Cadastro de tarefas -->
+            <section class="task-form">
+
+                <h2>Adicionar tarefa</h2>
+
+                <form id="form-task">
+
+                    <input
+                        type="text"
+                        id="task-title"
+                        placeholder="Digite uma nova tarefa..."
+                        required
+                    >
+
+                    <button type="submit">Adicionar tarefa</button>
+
+                </form>
+
+            </section>
+
+            <!-- Lista de tarefas -->
+            <section class="task-list">
+
+                <div class="list-header">
+                    <h2>Minha lista</h2>
+                </div>
+
+                <div id="tasks-container">
+    <p class="empty-message">Nenhuma tarefa cadastrada.</p>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

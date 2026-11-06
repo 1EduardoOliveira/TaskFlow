@@ -1,0 +1,557 @@
+
+/* =========================================
+   TASKFLOW — DESIGN SYSTEM
+========================================= */
+
+:root {
+    --bg-main: #0b0d14;
+    --bg-sidebar: #10131d;
+    --bg-card: #151925;
+    --bg-card-hover: #1b2030;
+    --bg-input: #0e111a;
+
+    --border: #252b3b;
+    --border-hover: #7653d9;
+
+    --primary: #8b5cf6;
+    --primary-hover: #a78bfa;
+    --primary-dark: #5426b8;
+
+    --text-primary: #f1f3f9;
+    --text-secondary: #9299ad;
+    --text-muted: #626b80;
+
+    --success: #34d399;
+    --danger: #f87171;
+
+    --radius: 14px;
+    --transition: 0.25s ease;
+}
+
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+/* BARRA DE ROLAGEM */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #343b50;
+    border-radius: 10px;
+}
+
+/* =========================================
+   ESTRUTURA PRINCIPAL
+========================================= */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================================
+   MENU LATERAL
+========================================= */
+
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+
+    padding: 35px 22px;
+}
+
+.logo h2 {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 55px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    color: var(--text-secondary);
+
+    padding: 14px 16px;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.menu a:hover {
+    background: #1b2030;
+    color: var(--text-primary);
+    transform: translateX(3px);
+}
+
+.menu a.active {
+    background: linear-gradient(
+        110deg,
+        rgba(139, 92, 246, 0.22),
+        rgba(139, 92, 246, 0.07)
+    );
+
+    color: var(--primary-hover);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+========================================= */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 45px;
+    max-width: 1600px;
+}
+
+.header {
+    margin-bottom: 38px;
+}
+
+.header h1 {
+    font-size: 32px;
+    font-weight: 750;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+/* =========================================
+   CARDS DE RESUMO
+========================================= */
+
+.task-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 32px;
+}
+
+.summary-card {
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        145deg,
+        #191e2c,
+        #131722
+    );
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 27px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    transition: var(--transition);
+}
+
+.summary-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-hover);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.summary-card h3 {
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 17px;
+}
+
+.summary-card span {
+    display: block;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--primary-hover);
+}
+
+/* =========================================
+   FORMULÁRIO DE TAREFAS
+========================================= */
+
+.task-form {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 28px;
+    margin-bottom: 32px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.task-form h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.task-form form {
+    display: flex;
+    gap: 13px;
+}
+
+.task-form input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 15px 17px;
+
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    color: var(--text-primary);
+    outline: none;
+
+    transition: var(--transition);
+}
+
+.task-form input::placeholder {
+    color: var(--text-muted);
+}
+
+.task-form input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.14);
+}
+
+.task-form button {
+    padding: 14px 23px;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
+    color: white;
+    font-weight: 700;
+
+    border: none;
+    border-radius: 10px;
+
+    transition: var(--transition);
+}
+
+.task-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+}
+
+.task-form button:active {
+    transform: scale(0.97);
+}
+
+/* =========================================
+   LISTA DE TAREFAS
+========================================= */
+
+.task-list {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 28px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.list-header {
+    margin-bottom: 23px;
+}
+
+.list-header h2 {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+#tasks-container p {
+    color: var(--text-secondary);
+    padding: 18px 0;
+}
+
+/* =========================================
+   CARDS INDIVIDUAIS DE TAREFAS
+========================================= */
+
+.task-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+
+    background: linear-gradient(
+        110deg,
+        #1a2030,
+        #151a27
+    );
+
+    border: 1px solid #2a3143;
+    border-radius: 12px;
+
+    padding: 20px;
+    margin-bottom: 13px;
+
+    transition: var(--transition);
+}
+
+.task-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* TÍTULO DA TAREFA */
+
+.task-card span {
+    min-width: 0;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    color: var(--text-primary);
+    overflow-wrap: anywhere;
+
+    transition: var(--transition);
+}
+
+.task-card span.concluida {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+/* ÁREA DOS BOTÕES */
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+}
+
+/* BOTÕES DAS TAREFAS */
+
+.task-actions button,
+.task-card button {
+    padding: 10px 15px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    color: white;
+    font-size: 13px;
+    font-weight: 650;
+
+    transition: var(--transition);
+}
+
+/* CONCLUIR */
+
+.task-actions button:first-child {
+    background: rgba(139, 92, 246, 0.16);
+    color: var(--primary-hover);
+    border-color: rgba(139, 92, 246, 0.2);
+}
+
+.task-actions button:first-child:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* EXCLUIR */
+
+.task-actions button:last-child {
+    background: rgba(248, 113, 113, 0.1);
+    color: var(--danger);
+    border-color: rgba(248, 113, 113, 0.15);
+}
+
+.task-actions button:last-child:hover {
+    background: #dc2626;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   ACESSIBILIDADE
+========================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--primary-hover);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   RESPONSIVIDADE — TABLETS
+========================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 210px;
+        padding: 28px 16px;
+    }
+
+    .main-content {
+        padding: 30px;
+    }
+
+    .task-summary {
+        gap: 14px;
+    }
+
+    .summary-card {
+        padding: 21px;
+    }
+}
+
+/* =========================================
+   RESPONSIVIDADE — CELULARES
+========================================= */
+
+@media (max-width: 650px) {
+
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .logo h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .menu a {
+        padding: 10px 13px;
+        font-size: 13px;
+    }
+
+    .main-content {
+        padding: 24px 18px;
+    }
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .task-summary {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .summary-card {
+        padding: 20px;
+    }
+
+    .summary-card span {
+        font-size: 29px;
+    }
+
+    .task-form,
+    .task-list {
+        padding: 20px;
+    }
+
+    .task-form form {
+        flex-direction: column;
+    }
+
+    .task-form button {
+        width: 100%;
+    }
+
+    .task-card {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .task-actions {
+        width: 100%;
+    }
+
+    .task-actions button {
+        flex: 1;
+    }
+}
